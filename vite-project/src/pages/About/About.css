@@ -1,0 +1,17 @@
+.about-content {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  color: white;
+}
+.about-content section {
+  margin-bottom: 30px;
+}
+.about-content h2 {
+  color: #7927ff;
+  margin-bottom: 10px;
+}
+.about-content ul {
+  list-style: disc;
+  padding-left: 20px;
+}
