@@ -2,21 +2,27 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 import authRoute from "./routes/authRoute.js";
 
 dotenv.config();
 const app = express();
 
-app.use(cors({ origin: process.env.CORS_ORIGIN, credentials: true }));
 app.use(express.json());
-import cookieParser from "cookie-parser";
 app.use(cookieParser());
+
+// Allow frontend domain to talk to backend
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN, // e.g., http://localhost:5173
+    origin: process.env.CORS_ORIGIN || "*",
     credentials: true,
   })
 );
+
+// Health check
+app.get("/", (req, res) => {
+  res.send("🚀 Crypto-Place backend is running!");
+});
 
 // Routes
 app.use("/api/auth", authRoute);
