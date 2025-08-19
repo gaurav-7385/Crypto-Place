@@ -12,6 +12,7 @@ import Signup from "./pages/Auth/SignUp";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
+  console.log("API Base URL:", import.meta.env.VITE_API_BASE_URL);
   return (
     <div className="app">
       <Navbar></Navbar>
